@@ -2,14 +2,14 @@ import React from "react";
 import { useTransactions } from "../context/context";
 
 export const AmountCard = () => {
-  const [income, expense] = [11, 98];
-  // useTransactions().reduce(
-  //   (acc, val) =>
-  //     val > 0
-  //       ? { ...acc, income: acc[income] + val }
-  //       : { ...acc, expense: acc[expense] + val },
-  //   { expense: 0, income: 0 }
-  // );
+  const amount = useTransactions().reduce((acc, val) => acc + val.amount, 0);
+  const { income, expense } = useTransactions().reduce(
+    (acc, val) =>
+      val.amount > 0
+        ? { ...acc, income: acc.income + val.amount }
+        : { ...acc, expense: acc.expense + val.amount },
+    { expense: 0, income: 0 }
+  );
   return (
     <div className="w-full p-5 border-2 mt-5 flex shadow-md">
       <div className="flex flex-col 3 w-1/2 items-center border-r-2 ">

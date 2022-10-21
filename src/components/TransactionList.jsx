@@ -44,4 +44,14 @@ const transactions = [
     text: "Test",
     amount: -200,
   },
+  {
+    id: 0,
+    text: "Party",
+    amount: 100,
+  },
+  {
+    id: 1,
+    text: "Test",
+    amount: -200,
+  },
 ];

@@ -6,8 +6,8 @@ import { TransactionsProvider } from "./context/context";
 
 function App() {
   return (
-    <div className="App">
-      <div className="h-full w-full bg-[#f7f7f7] flex justify-center mt-6 ">
+    <div className="App relative">
+      <div className="absolute h-full w-full bg-[#f7f7f7] flex justify-center mt-6 ">
         <div className="flex flex-col items-center  px-5">
           <TransactionsProvider>
             <BalanceHeader></BalanceHeader>

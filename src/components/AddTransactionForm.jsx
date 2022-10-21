@@ -12,10 +12,6 @@ export const AddTransactionForm = () => {
       type: "added",
       ...userInput,
     });
-    console.log({
-      type: "added",
-      ...userInput,
-    });
   };
 
   return (

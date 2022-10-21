@@ -12,7 +12,6 @@ const Transaction = ({ text, amount }) => {
 export const transactionReducer = (transactions, action) => {
   switch (action.type) {
     case "added": {
-      console.log(Transaction({ text: action.text, amount: action.amount }));
       return [
         ...transactions,
         Transaction({ text: action.text, amount: Number(action.amount) }),

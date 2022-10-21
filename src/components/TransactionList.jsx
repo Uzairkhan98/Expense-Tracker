@@ -1,6 +1,8 @@
 import React from "react";
+import { useTransactions } from "../context/context";
 
 export const TransactionList = () => {
+  const transactions = useTransactions();
   return (
     <div className="mt-10 w-full">
       <h2 className="text-2xl font-semibold capitalize border-b-2 pb-3 border-gray-300">
@@ -32,16 +34,3 @@ const TransactionCard = ({ id, text, amount }) => {
     </div>
   );
 };
-
-const transactions = [
-  {
-    id: 0,
-    text: "Party",
-    amount: 100,
-  },
-  {
-    id: 1,
-    text: "Test",
-    amount: -200,
-  },
-];

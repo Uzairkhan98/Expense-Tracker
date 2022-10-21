@@ -1,5 +1,7 @@
 import { BalanceHeader } from "./components/BalanceHeader";
 import { AmountCard } from "./components/AmountCard";
+import { TransactionList } from "./components/TransactionList";
+import { AddTransactionForm } from "./components/AddTransactionForm";
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
           <h1 className="text-2xl font-semibold">Expense Tracker</h1>
           <BalanceHeader></BalanceHeader>
           <AmountCard></AmountCard>
+          <TransactionList></TransactionList>
+          <AddTransactionForm></AddTransactionForm>
         </div>
       </div>
     </div>

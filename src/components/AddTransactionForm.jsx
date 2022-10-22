@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useTransactionsDispatch } from "../context/context";
 
 export const AddTransactionForm = () => {
-  const [userInput, setUserInput] = useState({});
+  const [userInput, setUserInput] = useState({ text: "", amount: 0 });
   const dispatch = useTransactionsDispatch();
 
   const handleSubmit = (e) => {
@@ -12,6 +12,7 @@ export const AddTransactionForm = () => {
       type: "added",
       ...userInput,
     });
+    setUserInput(() => ({ text: "", amount: 0 }));
   };
 
   return (
@@ -19,7 +20,7 @@ export const AddTransactionForm = () => {
       <h2 className="text-2xl font-semibold capitalize border-b-2 pb-3 border-gray-300">
         Add new transaction
       </h2>
-      <form typeof="submit" className="mt-4">
+      <form typeof="submit" className="mt-4" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-2">
           <label htmlFor="text" className="text-2xl font-semibold capitalize">
             Text
@@ -27,6 +28,9 @@ export const AddTransactionForm = () => {
           <input
             type="text"
             name="text"
+            required
+            value={userInput.text}
+            minLength={3}
             id="text"
             onChange={(e) =>
               setUserInput((uI) => ({ ...uI, text: e.target.value }))
@@ -40,7 +44,10 @@ export const AddTransactionForm = () => {
           <input
             type="number"
             name="amount"
+            value={userInput.amount}
             id="amount"
+            required
+            minLength={1}
             onChange={(e) =>
               setUserInput((uI) => ({ ...uI, amount: e.target.value }))
             }
@@ -50,7 +57,6 @@ export const AddTransactionForm = () => {
           <button
             type="submit"
             className="bg-indigo-500 p-2 capitalize font-semibold mt-2 mb-6 text-white"
-            onClick={handleSubmit}
           >
             add transaction
           </button>

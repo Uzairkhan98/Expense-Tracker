@@ -2,7 +2,6 @@ import React from "react";
 import { useTransactions } from "../context/context";
 
 export const AmountCard = () => {
-  const amount = useTransactions().reduce((acc, val) => acc + val.amount, 0);
   const { income, expense } = useTransactions().reduce(
     (acc, val) =>
       val.amount > 0

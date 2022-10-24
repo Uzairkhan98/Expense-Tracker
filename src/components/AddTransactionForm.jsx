@@ -31,6 +31,7 @@ export const AddTransactionForm = () => {
             required
             value={userInput.text}
             minLength={3}
+            maxLength={50}
             id="text"
             onChange={(e) =>
               setUserInput((uI) => ({ ...uI, text: e.target.value }))
@@ -47,7 +48,15 @@ export const AddTransactionForm = () => {
             value={userInput.amount}
             id="amount"
             required
-            minLength={1}
+            min={1}
+            pattern="\d*"
+            onInput={(e) => {
+              if (e.target.value.length > 12)
+                e.target.value = e.target.value.slice(0, 12);
+              if (e.target.value.length === 0) e.target.value = 0;
+              if (e.target.value.length > 1 && e.target.value[0] == 0)
+                e.target.value = e.target.value.slice(1);
+            }}
             onChange={(e) =>
               setUserInput((uI) => ({ ...uI, amount: e.target.value }))
             }

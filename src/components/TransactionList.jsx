@@ -4,7 +4,7 @@ import { useTransactions } from "../context/context";
 export const TransactionList = () => {
   const transactions = useTransactions();
   return (
-    <div className="mt-10 w-full">
+    <div className="mt-10 w-full ">
       <h2 className="text-2xl font-semibold capitalize border-b-2 pb-3 border-gray-300">
         History
       </h2>
@@ -26,7 +26,9 @@ const TransactionCard = ({ id, text, amount }) => {
     <div
       className={`bg-white w-full flex justify-between p-2 my-4 shadow-md border-r-4 ${color}`}
     >
-      <p className="font-semibold capitalize">{text}</p>
+      <p className="font-semibold capitalize">
+        {text.length > 20 ? text.slice(0, 20) + "..." : text}
+      </p>
       <p className="font-semibold">
         {amount > 0 && "+"}
         {amount}
